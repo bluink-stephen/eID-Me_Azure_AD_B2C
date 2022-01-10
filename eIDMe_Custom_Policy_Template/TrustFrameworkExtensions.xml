@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TrustFrameworkPolicy 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
+  PolicySchemaVersion="0.3.0.0" 
+  TenantId="yourtenant.onmicrosoft.com" 
+  PolicyId="B2C_1A_TrustFrameworkExtensions" 
+  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+  
+  <BasePolicy>
+    <TenantId>yourtenant.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_TrustFrameworkLocalization</PolicyId>
+  </BasePolicy>
+
+ <BuildingBlocks>
+
+   <ClaimsSchema>
+
+      <ClaimType Id="IAL">
+        <DisplayName>Identity Assurance Level</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="identity_assurance_level_achieved" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The Identity Assurance Level Achieved during proofing of the digital identity.</AdminHelpText>
+        <UserHelpText>The Identity Assurance Level Achieved during proofing of the digital identity.</UserHelpText>
+        <UserInputType>Readonly</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="picture">
+        <DisplayName>Portrait Photo</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="thumbnail_portrait" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The portrait photo of the user.</AdminHelpText>
+        <UserHelpText>Your portrait photo.</UserHelpText>
+        <UserInputType>Readonly</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="middle_name">
+        <DisplayName>Portrait Photo</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="middle_name" />
+        </DefaultPartnerClaimTypes>
+        <UserHelpText>Your middle name.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="birthdate">
+        <DisplayName>Date of Birth</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="birthdate" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's date of birth.</AdminHelpText>
+        <UserHelpText>Your date of birth.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="gender">
+        <DisplayName>Gender</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="gender" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's gender.</AdminHelpText>
+        <UserHelpText>Your gender.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="street_address">
+        <DisplayName>Locality/City</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="street_address" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's full street address, which MAY include house number, street name, post office box.</AdminHelpText>
+        <UserHelpText>Your street address of residence.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="locality">
+        <DisplayName>Locality/City</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="locality" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's current city or locality of residence.</AdminHelpText>
+        <UserHelpText>Your current city or locality of residence.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="region">
+        <DisplayName>Province or Territory</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="region" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's current province or territory of residence.</AdminHelpText>
+        <UserHelpText>Your current province or territory of residence.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="country">
+        <DisplayName>Country</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="country" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's current country of residence.</AdminHelpText>
+        <UserHelpText>Your current country of residence.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="dl_number">
+        <DisplayName>Driver's Licence Number</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="dl_number" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's driver's licence number.</AdminHelpText>
+        <UserHelpText>Your driver's licence number.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="dl_class">
+        <DisplayName>Driver's Licence Class</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="dl_class" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's driver's licence class.</AdminHelpText>
+        <UserHelpText>Your driver's licence class.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="dl_restrictions">
+        <DisplayName>Driver's Licence Restrictions</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="dl_restrictions" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's driver's licence restrictions.</AdminHelpText>
+        <UserHelpText>Your driver's licence restrictions.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <ClaimType Id="dl_endorsements">
+        <DisplayName>Driver's Licence Endorsements</DisplayName>
+        <DataType>string</DataType>
+        <DefaultPartnerClaimTypes>
+          <Protocol Name="OpenIdConnect" PartnerClaimType="dl_endorsements" />
+        </DefaultPartnerClaimTypes>
+        <AdminHelpText>The user's driver's licence endorsements.</AdminHelpText>
+        <UserHelpText>Your driver's licence endorsements.</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
+
+      <!-- Custom claim for allowing application to easily make a check if an account was created -->
+      <ClaimType Id="signupConditionsSatisfied">
+        <DisplayName>Signup Conditions Satisfied</DisplayName>
+        <DataType>boolean</DataType>
+        <AdminHelpText>Determines whether conditions have been met to allow account creation.</AdminHelpText>
+        <UserHelpText>Determines whether conditions have been met to allow account creation.</UserHelpText>
+      </ClaimType>
+
+    </ClaimsSchema>
+
+    <ClaimsTransformations>
+
+      <!-- This transformation allows us to set the signupConditionsSatisfied claim to true.
+           We are assuming that the default value is false and we are using this NOT transformation -->
+      <ClaimsTransformation Id="ToggleSignupConditionsSatisfied" TransformationMethod="NotClaims">
+        <InputClaims>
+            <InputClaim ClaimTypeReferenceId="signupConditionsSatisfied" TransformationClaimType="inputClaim" />
+        </InputClaims>
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signupConditionsSatisfied" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+
+    </ClaimsTransformations>
+
+  </BuildingBlocks>
+
+  <ClaimsProviders>
+
+    <ClaimsProvider>
+      <DisplayName>eID-Me</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="eID-Me-OIDC-Signup">
+          <Metadata>
+            <Item Key="client_id">eid_me_rp_client_id</Item>
+            <Item Key="scope">openid</Item>
+          </Metadata>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="postalCode" PartnerClaimType="postal_code" DefaultValue="unknown postal_code" />
+            <OutputClaim ClaimTypeReferenceId="locality" PartnerClaimType="locality" DefaultValue="unknown locality" />
+            <OutputClaim ClaimTypeReferenceId="region" PartnerClaimType="region" DefaultValue="unknown region" />
+            <OutputClaim ClaimTypeReferenceId="signupConditionsSatisfied" DefaultValue="false" />
+            <OutputClaim ClaimTypeReferenceId="IAL" PartnerClaimType="identity_assurance_level_achieved" DefaultValue="unknown IAL" />
+            <OutputClaim ClaimTypeReferenceId="picture" PartnerClaimType="thumbnail_portrait" DefaultValue="unknown portrait" />
+            <OutputClaim ClaimTypeReferenceId="middle_name" PartnerClaimType="middle_name" DefaultValue="unknown middle name" />
+            <OutputClaim ClaimTypeReferenceId="birthdate" PartnerClaimType="birthdate" DefaultValue="unknown DOB" />
+          </OutputClaims>
+        </TechnicalProfile>
+
+        <TechnicalProfile Id="eID-Me-OIDC-Signin">
+          <Metadata>
+            <Item Key="client_id">eid_me_rp_client_id</Item>
+            <Item Key="scope">openid email</Item>
+          </Metadata>
+          <OutputClaims>
+          </OutputClaims>
+        </TechnicalProfile>
+
+        <TechnicalProfile Id="Check-signup-gate-conditions">
+          <DisplayName>Signup Conditions</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signupConditionsSatisfied" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="ToggleSignupConditionsSatisfied" />
+          </OutputClaimsTransformations>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
+    <ClaimsProvider>
+      <DisplayName>Local Account SignIn</DisplayName>
+      <TechnicalProfiles>
+         <TechnicalProfile Id="login-NonInteractive">
+          <Metadata>
+            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
+  </ClaimsProviders>
+
+  <UserJourneys>
+	
+    <UserJourney Id="SignUp">
+      <OrchestrationSteps>
+
+        <!-- For eID-Me we suppress the combined option for sign up -->
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection TargetClaimsExchangeId="eID-MeSignupExchange" />
+            <!-- <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" /> -->
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- Assume the user is using one of the social providers -->
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="eID-MeSignupExchange" TechnicalProfileReferenceId="eID-Me-OIDC-Signup" />
+            <!-- <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" /> -->
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- For social IDP authentication, attempt to find the user account in the directory. -->
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>authenticationSource</Value>
+              <Value>localAccountAuthentication</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="AADUserReadUsingAlternativeSecurityId" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId-NoError" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- Show self-asserted page only if the directory does not have the user account already 
+             (i.e. we do not have an objectId). 
+             This can only happen when authentication happened using a social IDP. 
+             If local account was created or authentication done using ESTS in step 2, then an user account 
+             must exist in the directory by this time. -->
+        <!-- In this step we want to write the user to the directory ONLY if the following conditions 
+             are true:
+             1) There is NO existing objectId
+             2) The claims from eID-Me meet the criteria that the Relying Party application wants.
+             for 2) just list more conditions as desired.
+        -->
+ 
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+          <Preconditions>
+            <!-- If the account already exists, don't bother doing any claims checking -->
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <!-- We only write an account if all of these following conditions are satisfied -->
+            <!-- Skip if the identity_assurance_level_achieved is not Level 2 -->
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+              <Value>IAL</Value>
+              <Value>Level 2</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <!-- Skip if the city is not Ottawa -->
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+              <Value>locality</Value>
+              <Value>OTTAWA</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <!-- Skip if the region is not Ontario -->
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+              <Value>region</Value>
+              <Value>ON</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <!-- All conditions satisfied.  Write the account to AAD -->
+          <ClaimsExchanges>
+            <ClaimsExchange Id="AADUserWrite" TechnicalProfileReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
+          <Preconditions>
+            <!-- objectId will be created if the gate conditions were satisfied (previous step).
+                 OR if the account already exists.
+                 signupConditionsSatisfied claim defaults to false.
+                 So if objectId does not exist, we skip the toggling of the claim to true.
+                 Note: It would be so much nicer to do this in the previous step. --> 
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <!-- objectId exists. Toggle the signupConditionsSatisfied claim to true -->
+            <ClaimsExchange Id="ToggleAccountWillBeCreated" TechnicalProfileReferenceId="Check-signup-gate-conditions" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+<!--
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+-->
+        <!-- This step reads any user attributes that we may not have received when authenticating using ESTS 
+             so they can be sent in the token. -->
+        <OrchestrationStep Order="6" Type="ClaimsExchange">
+          <Preconditions>
+            <!-- Skip if no ID exists. It should exist though, so we want to read the info -->
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <!--
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>authenticationSource</Value>
+              <Value>socialIdpAuthentication</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            -->
+          </Preconditions>
+          <ClaimsExchanges>
+            <!-- <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" /> -->
+            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- The previous step (SelfAsserted-Social) could have been skipped if there were no attributes to collect 
+             from the user. So, in that case, create the user in the directory if one does not already exist 
+             (verified using objectId which would be set from the last step if account was created in the directory. -->
+        <!--
+        <OrchestrationStep Order="6" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="AADUserWrite" TechnicalProfileReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        -->
+
+        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
+      </OrchestrationSteps>
+      <ClientDefinition ReferenceId="DefaultWeb" />
+    </UserJourney>
+
+    <UserJourney Id="SignIn">
+      <OrchestrationSteps>
+
+        <!-- For eID-Me we suppress the combined option for sign up -->
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection TargetClaimsExchangeId="eID-MeSignupExchange" />
+            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- Check if the user has selected to sign in using one of the social providers -->
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="eID-MeSignupExchange" TechnicalProfileReferenceId="eID-Me-OIDC-Signin" />
+            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- For social IDP authentication, attempt to find the user account in the directory. -->
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>authenticationSource</Value>
+              <Value>localAccountAuthentication</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="AADUserReadUsingAlternativeSecurityId" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId-NoError" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- Show self-asserted page only if the directory does not have the user account already 
+             (i.e. we do not have an objectId). 
+             This can only happen when authentication happened using a social IDP. 
+             If local account was created or authentication done using ESTS in step 2, then an user account 
+             must exist in the directory by this time. -->
+        <!-- In this step we want to write the user to the directory ONLY if the following conditions 
+             are true:
+             1) There is NO existing objectId
+             2) The claims from eID-Me meet the criteria that the Relying Party application wants.
+             for 2) just list more conditions as desired.
+        -->
+ 
+        <!--
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        -->
+
+        <!-- This step reads any user attributes that we may not have received when authenticating using ESTS 
+             so they can be sent in the token. -->
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+          <Preconditions>
+            <!-- Skip if no ID exists. It should exist though, so we want to read the info -->
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <!--
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>authenticationSource</Value>
+              <Value>socialIdpAuthentication</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            -->
+          </Preconditions>
+          <ClaimsExchanges>
+            <!-- <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" /> -->
+            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
+      </OrchestrationSteps>
+      <ClientDefinition ReferenceId="DefaultWeb" />
+    </UserJourney>
+
+  </UserJourneys>
+
+</TrustFrameworkPolicy>
